@@ -14,7 +14,12 @@ public class CommentController {
 
     private final CommentService commentService;
 
-
+    @PostMapping("/like/{id}")
+    public void like(
+            @PathVariable Long id
+    ) {
+        commentService.like(id);
+    }
 
     @PostMapping
     public void createComment(

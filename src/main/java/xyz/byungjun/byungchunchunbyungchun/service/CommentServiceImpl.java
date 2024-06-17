@@ -14,8 +14,12 @@ public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
 
-
-
+    @Override
+    public void like(Long id) {
+        CommentEntity commentEntity = commentRepository.findById(id).get();
+        commentEntity.like();
+        commentRepository.save(commentEntity);
+    }
 
     @Override
     public void createComment(CommentDto comment) {

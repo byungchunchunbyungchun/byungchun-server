@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CommentService {
 
-
+    void like(Long id);
     void createComment(CommentDto comment);
     List<CommentDto> getComments(Long id);
     void updateComment(CommentDto commentDto);
