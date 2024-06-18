@@ -4,6 +4,7 @@ package xyz.byungjun.byungchunchunbyungchun.meal.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.context.annotation.Primary;
+import xyz.byungjun.byungchunchunbyungchun.core.entity.BaseEntity;
 import xyz.byungjun.byungchunchunbyungchun.meal.dto.MealDTO;
 
 import java.time.LocalDate;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealEntity {
+public class MealEntity extends BaseEntity {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

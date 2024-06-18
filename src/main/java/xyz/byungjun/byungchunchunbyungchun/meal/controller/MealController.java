@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import xyz.byungjun.byungchunchunbyungchun.core.dto.BaseDTO;
 import xyz.byungjun.byungchunchunbyungchun.meal.client.response.MealResponse;
 import xyz.byungjun.byungchunchunbyungchun.meal.dto.MealDTO;
 import xyz.byungjun.byungchunchunbyungchun.meal.service.MealService;
@@ -21,7 +22,7 @@ public class MealController {
     private final MealService mealService;
 
     @GetMapping("/today")
-    public List<MealDTO> today() throws IOException, GeneralSecurityException {
-        return mealService.getTodayMeals();
+    public BaseDTO<List<MealDTO>> today() throws IOException, GeneralSecurityException {
+        return new BaseDTO<>(200,  mealService.getTodayMeals());
     }
 }
