@@ -7,3 +7,15 @@ spring:
     driver-class-name: "com.mysql.cj.jdbc.Driver"
     username: "root"
     password: "Dodamtest1234!"
+  jpa:
+    hibernate:
+      ddl-auto: create
+  cloud:
+    openfeign:
+      httpclient:
+        disable-ssl-validation: true
+        hc5:
+          enabled: true
+
+neis:
+  api-key: "824039192aa64f01ade168abdd0315a3"
