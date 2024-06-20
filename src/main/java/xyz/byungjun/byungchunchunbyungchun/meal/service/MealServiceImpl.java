@@ -49,9 +49,9 @@ public class MealServiceImpl implements MealService {
         );
 
         List<MealDTO> mealDTOS = List.of(
-                createMealDTO(date, response.data().breakfast(), "breakfast", response.data().breakfast().calorie()),
-                createMealDTO(date, response.data().lunch(), "lunch", response.data().lunch().calorie()),
-                createMealDTO(date, response.data().dinner(), "dinner", response.data().dinner().calorie())
+                createMealDTO(date, response.data().breakfast(), "breakfast"),
+                createMealDTO(date, response.data().lunch(), "lunch"),
+                createMealDTO(date, response.data().dinner(), "dinner")
         );
 
         mealRepository.saveAll(
@@ -64,12 +64,12 @@ public class MealServiceImpl implements MealService {
         return mealDTOS;
     }
 
-    private MealDTO createMealDTO(LocalDate date, MealResponse.MealDetail mealDetail, String time, Double calorie) {
+    private MealDTO createMealDTO(LocalDate date, MealResponse.MealDetail mealDetail, String time) {
         return MealDTO.builder()
                 .date(date)
                 .meal(mealDataToString(mealDetail))
                 .time(time)
-                .calorie(calorie)
+                .calorie(mealDetail == null? 0.0 : mealDetail.calorie())
                 .build();
     }
 
