@@ -27,12 +27,15 @@ public class MealEntity extends BaseEntity {
     private String time;
     @Column(nullable = false)
     private String meal;
+    @Column(nullable = false)
+    private Double calorie;
 
     public MealDTO toMealDTO() {
         return MealDTO.builder()
                 .date(date)
                 .time(time)
                 .meal(meal)
+                .calorie(calorie)
                 .build();
     }
 }

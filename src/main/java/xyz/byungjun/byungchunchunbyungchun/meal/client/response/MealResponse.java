@@ -12,7 +12,8 @@ public record MealResponse(
             MealDetail dinner
     ){}
     public record MealDetail(
-            List<MealContent> details
+            List<MealContent> details,
+            Double calorie
     ){}
 
     public record MealContent(
