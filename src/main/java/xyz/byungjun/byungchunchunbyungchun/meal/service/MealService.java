@@ -4,10 +4,11 @@ import xyz.byungjun.byungchunchunbyungchun.meal.dto.MealDTO;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface MealService {
 
-    List<MealDTO> getTodayMeals() throws IOException, GeneralSecurityException;
+    List<MealDTO> getMeal(LocalDate date) throws IOException, GeneralSecurityException;
 
 }

@@ -28,10 +28,9 @@ public class MealServiceImpl implements MealService {
     String apiKey = "";
 
     @Override
-    public List<MealDTO> getTodayMeals() throws IOException, GeneralSecurityException {
-        LocalDate localDate = LocalDate.now();
+    public List<MealDTO> getMeal(LocalDate date) throws IOException, GeneralSecurityException {
 
-        List<MealEntity> result = mealRepository.findAllByDate(localDate);
+        List<MealEntity> result = mealRepository.findAllByDate(date);
 
         // 찾는데 성공한 경우
         if (!result.isEmpty()) {
@@ -44,15 +43,15 @@ public class MealServiceImpl implements MealService {
 
         // 실패한 경우
         MealResponse response = mealClient.getMeal(
-                String.valueOf(localDate.getYear()),
-                String.valueOf(localDate.getMonthValue()),
-                String.valueOf(localDate.getDayOfMonth())
+                String.valueOf(date.getYear()),
+                String.valueOf(date.getMonthValue()),
+                String.valueOf(date.getDayOfMonth())
         );
 
         List<MealDTO> mealDTOS = List.of(
-                createMealDTO(localDate, response.data().breakfast(), "breakfast"),
-                createMealDTO(localDate, response.data().lunch(), "lunch"),
-                createMealDTO(localDate, response.data().dinner(), "dinner")
+                createMealDTO(date, response.data().breakfast(), "breakfast"),
+                createMealDTO(date, response.data().lunch(), "lunch"),
+                createMealDTO(date, response.data().dinner(), "dinner")
         );
 
         mealRepository.saveAll(
@@ -74,6 +73,7 @@ public class MealServiceImpl implements MealService {
     }
 
     private String mealDataToString(MealResponse.MealDetail mealDetail) {
+        if (mealDetail == null) { return ""; }
         StringBuilder stringBuilder = new StringBuilder();
         mealDetail.details().forEach(detail -> {
             stringBuilder.append(detail.name()).append("\n");

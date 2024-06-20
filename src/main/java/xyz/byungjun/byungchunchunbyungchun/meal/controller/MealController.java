@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.byungjun.byungchunchunbyungchun.core.dto.BaseDTO;
 import xyz.byungjun.byungchunchunbyungchun.meal.client.response.MealResponse;
@@ -12,6 +13,7 @@ import xyz.byungjun.byungchunchunbyungchun.meal.service.MealService;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -23,6 +25,17 @@ public class MealController {
 
     @GetMapping("/today")
     public BaseDTO<List<MealDTO>> today() throws IOException, GeneralSecurityException {
-        return new BaseDTO<>(200,  mealService.getTodayMeals());
+        LocalDate date = LocalDate.now();
+        return new BaseDTO<>(200,  mealService.getMeal(date));
+    }
+
+    @GetMapping("/get")
+    public BaseDTO<List<MealDTO>> today(
+            @RequestParam("year") Integer year,
+            @RequestParam("month") Integer month,
+            @RequestParam("day") Integer day
+    ) throws IOException, GeneralSecurityException {
+        LocalDate date = LocalDate.of(year, month, day);
+        return new BaseDTO<>(200,  mealService.getMeal(date));
     }
 }
