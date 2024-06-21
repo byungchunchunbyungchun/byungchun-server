@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class MealDTO {
+    private Long id;
     private LocalDate date;
     private String time;
     private String meal;

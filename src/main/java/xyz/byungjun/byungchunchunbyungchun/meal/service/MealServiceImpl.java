@@ -61,7 +61,12 @@ public class MealServiceImpl implements MealService {
                         .toList()
         );
 
-        return mealDTOS;
+        result = mealRepository.findAllByDate(date);
+
+        return result
+                .stream()
+                .map(MealEntity::toMealDTO)
+                .toList();
     }
 
     private MealDTO createMealDTO(LocalDate date, MealResponse.MealDetail mealDetail, String time) {

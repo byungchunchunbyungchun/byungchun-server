@@ -32,6 +32,7 @@ public class MealEntity extends BaseEntity {
 
     public MealDTO toMealDTO() {
         return MealDTO.builder()
+                .id(id)
                 .date(date)
                 .time(time)
                 .meal(meal)
