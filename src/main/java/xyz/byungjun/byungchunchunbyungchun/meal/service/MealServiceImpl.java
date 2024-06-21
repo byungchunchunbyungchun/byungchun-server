@@ -69,6 +69,14 @@ public class MealServiceImpl implements MealService {
                 .toList();
     }
 
+    @Override
+    public MealDTO getMealById(Long mealId) {
+        MealEntity entity = mealRepository.findById(mealId).orElse(null);
+        if (entity == null) {return null;}
+        return entity.toMealDTO();
+    }
+
+
     private MealDTO createMealDTO(LocalDate date, MealResponse.MealDetail mealDetail, String time) {
         return MealDTO.builder()
                 .date(date)

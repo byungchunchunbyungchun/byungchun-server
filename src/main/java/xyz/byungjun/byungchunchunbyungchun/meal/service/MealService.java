@@ -11,4 +11,6 @@ public interface MealService {
 
     List<MealDTO> getMeal(LocalDate date) throws IOException, GeneralSecurityException;
 
+    MealDTO getMealById(Long mealId);
+
 }
