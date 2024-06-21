@@ -2,6 +2,7 @@ package xyz.byungjun.byungchunchunbyungchun.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import xyz.byungjun.byungchunchunbyungchun.core.dto.BaseDTO;
 import xyz.byungjun.byungchunchunbyungchun.dto.CommentDto;
 import xyz.byungjun.byungchunchunbyungchun.service.CommentService;
 
@@ -29,10 +30,10 @@ public class CommentController {
     }
 
     @GetMapping("/{id}")
-    public List<CommentDto> getComments(
+    public BaseDTO<List<CommentDto>> getComments(
             @PathVariable Long id
     ) {
-        return commentService.getComments(id);
+        return new BaseDTO<>(200, commentService.getComments(id));
     }
 
     @PutMapping
