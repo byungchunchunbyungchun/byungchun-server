@@ -1,10 +1,10 @@
-package xyz.byungjun.byungchunchunbyungchun.service;
+package xyz.byungjun.byungchunchunbyungchun.comment.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import xyz.byungjun.byungchunchunbyungchun.dto.CommentDto;
-import xyz.byungjun.byungchunchunbyungchun.entity.CommentEntity;
-import xyz.byungjun.byungchunchunbyungchun.repository.CommentRepository;
+import xyz.byungjun.byungchunchunbyungchun.comment.dto.CommentDto;
+import xyz.byungjun.byungchunchunbyungchun.comment.entity.CommentEntity;
+import xyz.byungjun.byungchunchunbyungchun.comment.repository.CommentRepository;
 
 import java.util.List;
 

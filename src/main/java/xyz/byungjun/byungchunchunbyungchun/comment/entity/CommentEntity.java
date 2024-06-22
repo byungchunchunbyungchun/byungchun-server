@@ -1,4 +1,4 @@
-package xyz.byungjun.byungchunchunbyungchun.entity;
+package xyz.byungjun.byungchunchunbyungchun.comment.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

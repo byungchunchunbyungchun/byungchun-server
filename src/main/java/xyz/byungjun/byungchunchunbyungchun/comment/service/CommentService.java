@@ -1,7 +1,7 @@
-package xyz.byungjun.byungchunchunbyungchun.service;
+package xyz.byungjun.byungchunchunbyungchun.comment.service;
 
-import xyz.byungjun.byungchunchunbyungchun.dto.CommentDto;
-import xyz.byungjun.byungchunchunbyungchun.entity.CommentEntity;
+import xyz.byungjun.byungchunchunbyungchun.comment.dto.CommentDto;
+import xyz.byungjun.byungchunchunbyungchun.comment.entity.CommentEntity;
 
 import java.util.List;
 

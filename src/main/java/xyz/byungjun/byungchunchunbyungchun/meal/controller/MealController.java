@@ -2,10 +2,7 @@ package xyz.byungjun.byungchunchunbyungchun.meal.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xyz.byungjun.byungchunchunbyungchun.core.dto.BaseDTO;
 import xyz.byungjun.byungchunchunbyungchun.meal.client.response.MealResponse;
 import xyz.byungjun.byungchunchunbyungchun.meal.dto.MealDTO;
@@ -15,7 +12,7 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.time.LocalDate;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3002")
 @RestController
 @RequestMapping("/meal")
 @RequiredArgsConstructor

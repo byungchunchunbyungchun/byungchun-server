@@ -1,4 +1,4 @@
-package xyz.byungjun.byungchunchunbyungchun.dto;
+package xyz.byungjun.byungchunchunbyungchun.comment.dto;
 
 import lombok.Builder;
 

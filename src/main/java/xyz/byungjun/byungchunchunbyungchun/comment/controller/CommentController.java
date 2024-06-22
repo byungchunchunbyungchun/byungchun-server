@@ -1,16 +1,17 @@
-package xyz.byungjun.byungchunchunbyungchun.controller;
+package xyz.byungjun.byungchunchunbyungchun.comment.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import xyz.byungjun.byungchunchunbyungchun.comment.dto.CommentDto;
 import xyz.byungjun.byungchunchunbyungchun.core.dto.BaseDTO;
-import xyz.byungjun.byungchunchunbyungchun.dto.CommentDto;
-import xyz.byungjun.byungchunchunbyungchun.service.CommentService;
+import xyz.byungjun.byungchunchunbyungchun.comment.service.CommentService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/comment")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3002")
 public class CommentController {
 
     private final CommentService commentService;
