@@ -39,7 +39,7 @@ public class MealController {
     @GetMapping("/one")
     public BaseDTO<MealDTO> today(
             @RequestParam("mealId") Long mealId
-    ) throws IOException, GeneralSecurityException {
+    ) {
         return new BaseDTO<>(200,  mealService.getMealById(mealId));
     }
 }
