@@ -21,13 +21,13 @@ public class MealController {
     private final MealService mealService;
 
     @GetMapping("/today")
-    public BaseDTO<List<MealDTO>> today() throws IOException, GeneralSecurityException {
+    public BaseDTO<List<MealDTO>> getTodayMeal() throws IOException, GeneralSecurityException {
         LocalDate date = LocalDate.now();
         return new BaseDTO<>(200,  mealService.getMeal(date));
     }
 
     @GetMapping("/get")
-    public BaseDTO<List<MealDTO>> today(
+    public BaseDTO<List<MealDTO>> getMeal(
             @RequestParam("year") Integer year,
             @RequestParam("month") Integer month,
             @RequestParam("day") Integer day
@@ -37,7 +37,7 @@ public class MealController {
     }
 
     @GetMapping("/one")
-    public BaseDTO<MealDTO> today(
+    public BaseDTO<MealDTO> getOneMeal(
             @RequestParam("mealId") Long mealId
     ) {
         return new BaseDTO<>(200,  mealService.getMealById(mealId));
